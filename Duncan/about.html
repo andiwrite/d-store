@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D store - About Us</title>
+    <link rel="stylesheet" href="style-about.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">D store</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="about">
+            <h1>About Us</h1>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>At D store, we are passionate about bringing you the latest fashion trends. Our journey began with a simple idea: to offer high-quality, stylish clothing at affordable prices. We believe in creating a shopping experience that is both enjoyable and memorable.</p>
+                    
+                    <h2>Our Mission</h2>
+                    <p>Our mission is to provide customers with a diverse range of fashion-forward clothing that caters to every style and occasion. We are committed to exceptional customer service and aim to make every visit to our store a pleasant experience.</p>
+                    
+                    <h2>Meet the Team</h2>
+                    <p>Our team is dedicated to curating the best fashion pieces and delivering outstanding service. We work tirelessly to ensure that our store remains a go-to destination for fashion enthusiasts.</p>
+                </div>
+                <div class="about-image">
+                    <img src="pic.jpg" alt="About Us Image">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 D store. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+   
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

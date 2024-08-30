@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | D Store</title>
+    <link rel="stylesheet" href="cart-style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">D Store</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="cart">
+            <h1>Your Cart</h1>
+            <div class="cart-container">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="pic.jpg" alt="Product Image" class="cart-image"></td>
+                            <td>Product Description</td>
+                            <td class="price">$50.00</td>
+                            <td>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                            </td>
+                            <td class="total">$50.00</td>
+                            <td><button class="remove-button">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic.jpg" alt="Product Image" class="cart-image"></td>
+                            <td>Product Description</td>
+                            <td class="price">$50.00</td>
+                            <td>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                            </td>
+                            <td class="total">$50.00</td>
+                            <td><button class="remove-button">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="pic.jpg" alt="Product Image" class="cart-image"></td>
+                            <td>Product Description</td>
+                            <td class="price">$50.00</td>
+                            <td>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                            </td>
+                            <td class="total">$50.00</td>
+                            <td><button class="remove-button">Remove</button></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <div class="cart-summary">
+                    <p>Total Price: <span class="total-price">$50.00</span></p>
+                    <button class="checkout-button">Proceed to Checkout</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 D Store. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartTable = document.querySelector('.cart-table');
+            const totalPriceElement = document.querySelector('.total-price');
+
+            const updateTotal = () => {
+                let total = 0;
+                cartTable.querySelectorAll('tbody tr').forEach(row => {
+                    const price = parseFloat(row.querySelector('.price').textContent.replace('$', ''));
+                    const quantity = parseInt(row.querySelector('.quantity-input').value, 10);
+                    const rowTotal = price * quantity;
+                    row.querySelector('.total').textContent = `$${rowTotal.toFixed(2)}`;
+                    total += rowTotal;
+                });
+                totalPriceElement.textContent = `$${total.toFixed(2)}`;
+            };
+
+            cartTable.addEventListener('change', (event) => {
+                if (event.target.classList.contains('quantity-input')) {
+                    updateTotal();
+                }
+            });
+
+            cartTable.addEventListener('click', (event) => {
+                if (event.target.classList.contains('remove-button')) {
+                    event.target.closest('tr').remove();
+                    updateTotal();
+                }
+            });
+
+            updateTotal(); 
+        });
+    </script>
+</body>
+</html>
